@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem Colar | Artigos Decorativos e Soluções em Design de Interiores</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset e Configurações Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #1e293b;       /* Grafite Elegante */
+            --accent: #c5a880;        /* Dourado Fosco / Tom de Decoração */
+            --bg-light: #faf9f6;      /* Off-White / Areia Suave */
+            --text-dark: #334155;     /* Texto principal */
+            --muted: #64748b;         /* Texto secundário */
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Menu de Navegação Superior */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-btn {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem !important;
+            transition: background-color 0.3s !important;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--accent);
+        }
+
+        /* Seção Principal (Hero) */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(254, 253, 250, 0.95)), 
+                        url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(197, 168, 128, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 41, 59, 0.15);
+        }
+
+        /* Estilo Geral de Seções */
+        section {
+            padding: 7rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        /* Grade de Serviços / Categorias */
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(30, 41, 59, 0.05);
+            border-color: rgba(197, 168, 128, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* Seção Sobre / Galpão Logístico */
+        .about-section {
+            background-color: var(--bg-light);
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .features-list i {
+            color: var(--accent);
+        }
+
+        /* Seção de Contato e Informações Reais */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 6px;
+        }
+
+        .contact-box i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            background: white;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .contact-box h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-box a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-box a:hover {
+            color: var(--accent);
+        }
+
+        .location-showcase {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 3rem;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-showcase::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(197, 168, 128, 0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .location-showcase h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--primary);
+            color: #94a3b8;
+            padding: 4rem 2rem 2rem 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #334155;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 3rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 3rem;
+        }
+
+        .footer-brand h4 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-copy {
+            text-align: center;
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* Responsividade para Dispositivos Móveis */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* Simplificado para focar na estrutura mobile limpa */
+            .hero h1 { font-size: 2.4rem; }
+            .about-container, .contact-container { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-content { flex-direction: column; text-align: center; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho & Links de Tópicos de Serviços no Topo -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Bem<span>Colar</span></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#papeis">Papéis de Parede</a></li>
+                    <li><a href="#adesivos">Adesivos Decorativos</a></li>
+                    <li><a href="#paineis">Painéis Fotográficos</a></li>
+                    <li><a href="#sobre">Nossa Distribuição</a></li>
+                    <li><a href="#contato" class="nav-btn">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção de Abertura (Hero) -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transforme Espaços com Design e Praticidade</h1>
+            <p>A Bem Colar desenvolve e distribui artigos decorativos de alto padrão para renovar ambientes residenciais e corporativos com elegância e facilidade de aplicação.</p>
+            <a href="#servicos" class="btn-primary">Conhecer Nossas Soluções</a>
+        </div>
+    </section>
+
+    <!-- Tópicos dos Principais Serviços / Categorias -->
+    <section id="servicos">
+        <div class="section-header">
+            <p>Portfólio Exclusivo</p>
+            <h2>O Que Desenvolvemos</h2>
+        </div>
+        <div class="services-grid">
+            
+            <!-- Linha 1 -->
+            <div class="service-card" id="papeis">
+                <div class="service-icon"><i class="fa-solid fa-scroll"></i></div>
+                <h3>Papéis de Parede Premium</h3>
+                <p>Coleções exclusivas com texturas modernas, padrões geométricos e florais de alta definição para salas, quartos e escritórios.</p>
+            </div>
+
+            <!-- Linha 2 -->
+            <div class="service-card" id="adesivos">
+                <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Adesivos Decorativos</h3>
+                <p>Soluções versáteis e recortadas eletronicamente para personalização ágil de superfícies lisas, vidros, azulejos e móveis.</p>
+            </div>
+
+            <!-- Linha 3 -->
+            <div class="service-card" id="paineis">
+                <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3>Painéis Fotográficos</h3>
+                <p>Impressões em grandes formatos sob medida para criar paredes de destaque impactantes e imersivas em ambientes comerciais.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Seção Institucional / Sobre a Empresa -->
+    <section id="sobre" class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Desde 2011 Inovando em Artigos Revestimentos Decorativos</h3>
+                <p>Com 15 anos de atuação sólida e constante no mercado brasileiro, a <strong>Bem Colar Comércio de Artigos Decorativos LTDA</strong> combina tecnologia gráfica avançada e curadoria de design refinada.</p>
+                <p>Nossa estrutura logística otimizada e foco em materiais de altíssima durabilidade nos permitem atender lojistas, arquitetos e clientes finais com agilidade e alto padrão de exigência.</p>
+                
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check"></i> Produção Própria com Tecnologia de Ponta</li>
+                    <li><i class="fa-solid fa-check"></i> Matéria-prima Atóxica e Lavável</li>
+                    <li><i class="fa-solid fa-check"></i> Empresa Consolidada e Regularizada ativa desde 2011</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&q=80&w=500" alt="Ambiente Decorado Moderno" style="width: 100%; max-width: 450px; border-radius: 8px; box-shadow: 0 15px 30px rgba(0,0,0,0.08);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e Localização Real -->
+    <section id="contato">
+        <div class="section-header">
+            <p>Atendimento</p>
+            <h2>Canais de Conexão</h2>
+        </div>
+        <div class="contact-container">
+            
+            <div class="contact-info">
+                <div class="contact-box">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Central de Atendimento</h4>
+                        <a href="tel:3137864140">(31) 3786-4140</a>
+                    </div>
+                </div>
+
+                <div class="contact-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>E-mail Corporativo</h4>
+                        <a href="mailto:contabilidade@tempus.cnt.br">contabilidade@tempus.cnt.br</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-showcase">
+                <h4>Centro de Distribuição e Logística</h4>
+                <p style="font-size: 1.05rem; line-height: 1.6; opacity: 0.9;">
+                    Rua Ipe Mirim, 151 - Galpão<br>
+                    Bairro: Etelvina Carneiro<br>
+                    Belo Horizonte - MG<br>
+                    CEP: 31746-110
+                </p>
+                <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fa-solid fa-truck-ramp-box"></i> Despacho para todo o Brasil
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>Bem Colar Artigos Decorativos</h4>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem; max-width: 400px;">
+                    Razão Social: Bem Colar Comercio de Artigos Decorativos LTDA<br>
+                    CNPJ: 13.572.990/0001-84 | Inscrição Estadual: 001765983.00-15
+                </p>
+            </div>
+            <div>
+                <p style="font-size: 0.85rem; max-width: 300px;">Empresa Matriz com Situação Cadastral Ativa perante os órgãos reguladores nacionais.</p>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Bem Colar. Todos os direitos reservados. Design Corporativo & Revestimentos Modernos.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
